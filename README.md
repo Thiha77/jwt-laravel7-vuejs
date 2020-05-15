@@ -12,6 +12,12 @@
 - composer install
 - php artisan migrate
 - npm install
-- user table role default => 1 ##admin
-- change role => 2 ##user
+## admin
+- user table role default => 1 
+##user
+- change role => 2 
 - role 1 is admin / role 2 is user
+===============================================================
+## run project
+- php artisan serve 
+- npm run watch
