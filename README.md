@@ -9,9 +9,9 @@
 
 ## About jwt-laravel7-vuejs
 
-```composer install```
-```php artisan migrate```
-``` npm install```
-```user table role default => 1 #admin```
-``` change role => 2 #user```
-``` role 1 is admin / role 2 is user```
+- composer install
+- php artisan migrate
+- npm install
+- user table role default => 1 ##admin
+- change role => 2 ##user
+- role 1 is admin / role 2 is user
