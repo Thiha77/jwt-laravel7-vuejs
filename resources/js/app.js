@@ -30,26 +30,27 @@ router.beforeEach((to, from, next) => {
       if(!authUser || !authUser.token){
         next({name:'login'})
       }
-      // for admin 
-      else if(to.meta.Admin){
+      else if(authUser || authUser.token){
+        // for admin 
+         if(to.meta.Admin){
+          const authUser = store.getters.currentUser
+          if(authUser.role === 1){
+            next()
+          }else{
+            next({name:'Unauthorized'})
+          }
+        }
+        // for User component
+       if(to.meta.User){
         const authUser = store.getters.currentUser
-        if(authUser.role === 1){
+        if(authUser.role === 2){
           next()
         }else{
           next({name:'Unauthorized'})
         }
       }
-      // for User component
-
-      // else if(to.meta.User){
-      //   const authUser = store.getters.currentUser
-      //   if(authUser.role === 2){
-      //     next()
-      //   }else{
-      //     next({name:'Unauthorized'})
-      //   }
-      // }
-
+        next()
+      }
     }
     else{
       next()

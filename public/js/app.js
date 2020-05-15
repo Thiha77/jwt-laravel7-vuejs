@@ -39826,8 +39826,9 @@ router.beforeEach(function (to, from, next) {
       next({
         name: 'login'
       });
-    } // for admin 
-    else if (to.meta.Admin) {
+    } else if (authUser || authUser.token) {
+      // for admin 
+      if (to.meta.Admin) {
         var _authUser = store.getters.currentUser;
 
         if (_authUser.role === 1) {
@@ -39838,15 +39839,22 @@ router.beforeEach(function (to, from, next) {
           });
         }
       } // for User component
-    // else if(to.meta.User){
-    //   const authUser = store.getters.currentUser
-    //   if(authUser.role === 2){
-    //     next()
-    //   }else{
-    //     next({name:'Unauthorized'})
-    //   }
-    // }
 
+
+      if (to.meta.User) {
+        var _authUser2 = store.getters.currentUser;
+
+        if (_authUser2.role === 2) {
+          next();
+        } else {
+          next({
+            name: 'Unauthorized'
+          });
+        }
+      }
+
+      next();
+    }
   } else {
     next();
   }
@@ -40861,12 +40869,10 @@ var routes = [{
 }, {
   path: '/dashboard',
   name: 'dashboard',
-  component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"] // meta: {
-  //     reqiuresAuth: true,
-  //     Admin:true,
-  //     User:true
-  //   }
-
+  component: _components_Dashboard_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
+  meta: {
+    reqiuresAuth: true
+  }
 }, {
   path: '/test',
   name: 'test',
@@ -40980,8 +40986,8 @@ var user = Object(_partials_auth__WEBPACK_IMPORTED_MODULE_0__["getLoggedinUser"]
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\xampp\htdocs\jwt_lara_vue\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\xampp\htdocs\jwt_lara_vue\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! C:\xampp\htdocs\jwt-laravel7-vuejs\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! C:\xampp\htdocs\jwt-laravel7-vuejs\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

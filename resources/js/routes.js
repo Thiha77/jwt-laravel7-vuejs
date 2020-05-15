@@ -30,11 +30,10 @@ export const routes = [
         path: '/dashboard',
         name: 'dashboard',
         component: Dashboard,
-        // meta: {
-        //     reqiuresAuth: true,
-        //     Admin:true,
-        //     User:true
-        //   }
+        meta: {
+            reqiuresAuth: true,
+            
+          }
         
     },
     {
