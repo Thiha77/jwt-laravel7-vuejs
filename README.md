@@ -10,6 +10,8 @@
 ## About jwt-laravel7-vuejs
 - composer install
 - php artisan migrate
+- php artisan key:generate
+- php artisan jwt:secret
 - npm install
 ## admin
 - user table role default => 1 
@@ -17,6 +19,8 @@
 - change role => 2 
 ## change in table
 - role 1 is admin / role 2 is user
+## setup database
+- .env.example copy .env
 ## run project
 - php artisan serve 
 - npm run watch
