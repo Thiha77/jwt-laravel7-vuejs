@@ -8,16 +8,15 @@
 </p>
 
 ## About jwt-laravel7-vuejs
-
 - composer install
 - php artisan migrate
 - npm install
 ## admin
 - user table role default => 1 
-##user
+## user
 - change role => 2 
+## change in table
 - role 1 is admin / role 2 is user
-===============================================================
 ## run project
 - php artisan serve 
 - npm run watch
